@@ -9,8 +9,8 @@ with open('data/sample.csv', 'rt',encoding="utf-8", errors='ignore') as ifile, o
         if flag:
             flag=False
             continue
-
-        if len(row) != 20:
+        print(row)
+        if len(row) != 14:
             continue
         for coll in row:
             if coll == "":
