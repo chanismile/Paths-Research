@@ -6,6 +6,8 @@ def fix_csv_file(file_name):
         reader = csv.reader(ifile, delimiter=',')
         writer = csv.writer(ofile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
 
+        count_wrong = 0
+        count_right = 0
         for row in reader:
             if flag:
                 flag=False
@@ -18,4 +20,13 @@ def fix_csv_file(file_name):
                 if not coll:
                     able = False
             if able:
+                count_right += 1
                 writer.writerow(row)
+            else:
+                count_wrong += 1
+
+    return (count_wrong, count_right)
+
+
+
+print(fix_csv_file('data/oddetect.csv'))
