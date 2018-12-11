@@ -1,7 +1,14 @@
 import csv
-with open('data/oddetect.csv', 'rb') as ifile, open('data/fixed.csv', 'wb') as ofile:
-    csv_reader = csv.reader(ifile, delimiter=',')
-    reader = csv.reader(ifile)
-    writer = csv.writer(ofile, delimiter='', quotechar='"', quoting=csv.QUOTE_ALL)
+
+flag = True
+with open('data/sample.csv', 'rt',encoding="utf-8", errors='ignore') as ifile, open('data/fixed.csv', 'wt',encoding="utf-8") as ofile:
+    reader = csv.reader(ifile, delimiter=',')
+    writer = csv.writer(ofile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+
     for row in reader:
+        if flag:
+            flag=False
+            continue
+
+        print(row)
         writer.writerow(row)
