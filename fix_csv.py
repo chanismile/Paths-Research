@@ -10,5 +10,9 @@ with open('data/sample.csv', 'rt',encoding="utf-8", errors='ignore') as ifile, o
             flag=False
             continue
 
-        print(row)
+        if len(row) != 20:
+            continue
+        for coll in row:
+            if coll == "":
+                continue
         writer.writerow(row)
