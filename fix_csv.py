@@ -10,9 +10,12 @@ with open('data/sample.csv', 'rt',encoding="utf-8", errors='ignore') as ifile, o
             flag=False
             continue
         print(row)
+
+        able = True
         if len(row) != 14:
-            continue
+            able = False
         for coll in row:
-            if coll == "":
-                continue
-        writer.writerow(row)
+            if not coll:
+                able = False
+        if able:
+            writer.writerow(row)
