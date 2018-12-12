@@ -6,7 +6,12 @@ imshow(img)
 
 
 def draw_lines(*args,multipul = True):
-    
+
+    if list == []:
+        fig, ax = plt.subplots()
+        ax.imshow(img)
+        return
+
     for i,tuple in enumerate(args):
         if multipul or i==0:
             plt.figure(i+1)
