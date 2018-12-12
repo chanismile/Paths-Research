@@ -1,0 +1,2 @@
+MAX_TO_PRESENT = 20
+GRID = (10,10)
