@@ -8,4 +8,4 @@ The program loads from a file a list of tracks and displays them on a given imag
 
 for example:
 the picture is - 
-![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/paths0.png)
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/paths1.png)
