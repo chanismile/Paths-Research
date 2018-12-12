@@ -73,4 +73,4 @@ def filter(*args):
 
 tuple1 = (filter_by_area,((0, 0),(100, 100)))
 tuple2 = (filter_by_definitioned_area,((7,9),(10,10)))
-filter(tuple2,tuple1)
+filter(tuple1,tuple2)
