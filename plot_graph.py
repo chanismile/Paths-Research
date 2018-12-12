@@ -5,14 +5,14 @@ img = Image.open('data/paths0.png')
 imshow(img)
 
 
-def draw_lines(*args,multipul = True):
+def draw_lines(list,multipul = True):
 
     if list == []:
         fig, ax = plt.subplots()
         ax.imshow(img)
         return
 
-    for i,tuple in enumerate(args):
+    for i,tuple in enumerate(list):
         if multipul or i==0:
             plt.figure(i+1)
             fig, ax = plt.subplots()
