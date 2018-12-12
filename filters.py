@@ -75,11 +75,12 @@ def filter(*args):
     var_in_class = df_by_obj
 
 
-tuple1 = (filter_by_area, ((0, 0), (100, 100)))
-tuple2 = (filter_by_definitioned_area, ((1, 1), (10, 10)))
-filter(tuple1, tuple2)
+tuple1 = (filter_by_area, ((100, 100), (200, 200)))
+#tuple2 = (filter_by_definitioned_area, ((1, 1), (10, 10)))
+# filter(tuple1, tuple2)
 
 
-tuple1 = (filter_by_area,((0, 0),(100, 100)))
-tuple2 = (filter_by_definitioned_area,((7,9),(10,10)))
-filter(tuple1,tuple2)
+tuple3 = (filter_by_time,(datetime.time(1, 24, 9),datetime.time(1, 27, 9)))
+tuple4 = (filter_by_date,(datetime.date(2017, 8, 20),))
+filter(tuple1, tuple3, tuple4)
+
