@@ -10,6 +10,7 @@ def draw_lines(list,multipul = True):
     if list == []:
         fig, ax = plt.subplots()
         ax.imshow(img)
+        show()
         return
 
     for i,tuple in enumerate(list):
