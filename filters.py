@@ -1,0 +1,55 @@
+import pandas as pd
+from pylab import *
+from plot_graph import draw_lines
+import datetime
+
+df = pd.read_pickle('data/paths.pkl.xz')
+objs = df.groupby(["filename","obj"]).size().sort_values(ascending=False)
+df_by_obj = df.set_index(['filename', 'obj']).sort_index()
+img = imread("data/paths0.png")
+
+def plot_objs(data):
+    top10 = data.groupby(["filename","obj"]).size().sort_values(ascending=False).head(10)
+    df_by_obj = df.set_index(['filename', 'obj']).sort_index()
+    main_info = []
+    for t in top10.index:
+        oo = df_by_obj.loc[t]
+        main_info.append((oo.x,oo.y))
+    draw_lines(main_info,multipul = False)
+
+def filter_by_date(date):
+    specific_date = df[df.time.dt.date == date]
+    plot_objs(specific_date)
+
+# d = datetime.date(2017, 8, 20)
+# filter_by_date(d)
+
+def filter_by_time(time1,time2):
+    specific_time = df[df.time.dt.time.between(time1, time2)]
+    plot_objs(specific_time)
+
+# time1 = datetime.time(1, 24, 9)
+# time2 = datetime.time(1, 27, 9)
+# filter_by_time(time1,time2)
+
+def filter_by_area(t_l, b_r):
+    table = df_by_obj[(df_by_obj.x.between(t_l[0], b_r[0])) & (df_by_obj.y.between(t_l[1], b_r[1]))]
+    plot_objs(table[['x', 'y']])
+
+# t_l = (0, 0)
+# b_r = (600, 300)
+# filter_by_area(t_l,b_r)
+
+
+def filter_by_definitioned_area(num_square, num_of_squares):
+    y=img.shape[0]
+    x=img.shape[1]
+    x_size=x//num_of_squares[0]
+    y_size=y//num_of_squares[1]
+    p1=(x_size*num_square[0],y_size*(num_square[1]))
+    p2=(x_size*(num_square[0]+1),y_size*(num_square[1]+1))
+    filter_by_area(p1,p2)
+
+# num_square=(7,9)
+# num_of_squares=(10,10)
+# filter_by_definitioned_area(num_square, num_of_squares)
