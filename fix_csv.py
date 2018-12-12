@@ -5,7 +5,6 @@ def fix_csv_file(file_name):
     with open(file_name, 'rt',encoding="utf-8", errors='ignore') as ifile, open('data/fixed.csv', 'wt',newline='',encoding="utf-8") as ofile:
         reader = csv.reader(ifile, delimiter=',')
         writer = csv.writer(ofile, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
-
         count_wrong = 0
         count_right = 0
         for row in reader:
