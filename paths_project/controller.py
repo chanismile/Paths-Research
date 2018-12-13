@@ -90,7 +90,7 @@ class Controller:
             y_size = y // settings.GRID[1]
             p1 = (x_size * int(indx1), y_size * int(indx2))
             p2 = (x_size * (int(indx1) + 1), y_size * (int(indx2) + 1))
-            temp_df_with_filter.append(self.area_filter(p1, p2))
+            temp_df_with_filter = temp_df_with_filter.append(self.area_filter(p1, p2))
         return temp_df_with_filter
 
     def reset_df_with_filter(self):
