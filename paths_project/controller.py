@@ -60,9 +60,9 @@ class Controller:
                 self.df_with_filter = self.hours_filter(*filter[1])
 
             elif filter[0] == 2:
-                self.df_with_filter = self.date_filter(filter[1][2])
-                self.df_with_filter = self.hours_filter(filter[1][0], filter[1][1])
-
+                 self.df_with_filter = self.date_filter(filter[1][2])
+                 self.df_with_filter = self.hours_filter(filter[1][0], filter[1][1])
+                #self.df_with_filter = self.hours_and_date_filter(*filter[1])
             elif filter[0] == 3:
                 self.df_with_filter = self.area_filter(*filter[1])
 
@@ -71,11 +71,15 @@ class Controller:
 
         self.plot_objs(self.df_with_filter[['x', 'y']])
 
+
     def hours_filter(self, frm, to):
         return self.df_with_filter[self.df_with_filter.time.dt.time.between(frm, to)]
 
     def date_filter(self, date):
         return self.df_with_filter[self.df_with_filter.time.dt.date == date]
+
+    def hours_and_date_filter(self,frm, to, date):
+        return self.df_with_filter[(self.df_with_filter.time.dt.date == date) & (self.df_with_filter.time.dt.date == date)]
 
     def area_filter(self, p1, p2):
         return self.df_with_filter[
