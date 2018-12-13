@@ -80,6 +80,8 @@ if __name__ == '__main__':
             choosing_filter = int(input('Do you want another filter? Press 1, if not, press 2\n'))
 
         control.drow_by_filters(tuple(choises_list))
-        ans = input('to add more filters press 1, new filters - press 2\n')
+        ans = input('to add more filters press 1, new filters - press 2, previous filter - press 3\n')
         if ans == 2:
             control.reset_df_with_filter()
+        elif ans == 3:
+            control.previous_filter()

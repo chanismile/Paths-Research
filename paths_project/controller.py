@@ -14,6 +14,7 @@ class Controller:
     def __init__(self, file_name, image_name):
         self.model = model.Model(file_name, image_name)
         self.df_with_filter = self.model.df_by_obj
+        self.old_filter = self.df_with_filter
 
     def get_file(self):
         return self.model.get_pickle_file()
@@ -66,7 +67,6 @@ class Controller:
             elif filter[0] == 4:
                 for indx1,indx2 in filter[1]:
                     self.specific_area_filter((int(indx1),int(indx2)))
-
         self.plot_objs(self.df_with_filter[['x', 'y']])
 
 
@@ -89,4 +89,9 @@ class Controller:
         self.area_filter(p1, p2)
 
     def reset_df_with_filter(self):
+        self.old_filter = self.df_with_filter
         self.df_with_filter = self.model.df_by_obj
+
+    def previous_filter(self):
+        self.df_with_filter = self.old_filter
+        self.plot_objs(self.df_with_filter)
