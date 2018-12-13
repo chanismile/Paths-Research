@@ -82,7 +82,7 @@ class Controller:
             (self.df_with_filter.x.between(p1[0], p2[0])) & (self.df_with_filter.y.between(p1[1], p2[1]))]
 
     def specific_area_filter(self, square_indexes):
-        temp_df_with_filter = self.df_with_filter.head(10)
+        temp_df_with_filter = self.df_with_filter.head(0)
         for indx1, indx2 in square_indexes:
             x = self.model.img.size[0]
             y = self.model.img.size[1]
