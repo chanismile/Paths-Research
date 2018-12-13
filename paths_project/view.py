@@ -74,7 +74,7 @@ if __name__ == '__main__':
                 parse_to_specific_area_filter(choise)
 
             elif choise[0] == '5':
-                print('bye')
+                print('Bye')
                 sys.exit()
 
             choosing_filter = int(input('Do you want another filter? Press 1, if not, press 2\n'))

@@ -45,10 +45,11 @@ class Controller:
         for t in top10.index:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
-        if self.df_with_filter.size < settings.MAX_TO_PRESENT:
-            multiplied = True
-        else:
-            multiplied = False
+        multiplied = False
+        if self.df_with_filter.size.real < settings.MAX_TO_PRESENT:
+            multiplied = bool(int(input("do you want to see every track in another show?")))
+        # else:
+        #     multiplied = False
         self.draw_lines(main_info,multiplied)
 
     def drow_by_filters(self, filters):
