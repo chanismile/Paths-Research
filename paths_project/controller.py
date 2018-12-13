@@ -21,7 +21,7 @@ class Controller:
         return self.model.get_pickle_file()
 
     def draw_lines(self, list, multiplied = False):
-
+        ion()
         if list == []:
             fig, ax = plt.subplots()
             ax.imshow(self.model.img)
@@ -33,8 +33,11 @@ class Controller:
                 plt.figure(i + 1)
                 fig, ax = plt.subplots()
                 ax.imshow(self.model.img)
+                #pause(0.1)
+                #gcf().clear()
             plot(*tuple, '-', 'color', rand(1, 10))
-        show()
+        pause(0.001)
+        draw()
 
 
     def plot_objs(self, data):
@@ -47,7 +50,7 @@ class Controller:
             main_info.append((oo.x, oo.y))
         multiplied = False
         if self.df_with_filter.size.real < settings.MAX_TO_PRESENT:
-            multiplied = bool(int(input("do you want to see every track in another show?")))
+            multiplied = bool(int(input("Press 1 to see every path in an seperate image. Press 0 to see in one image")))
         # else:
         #     multiplied = False
         self.draw_lines(main_info,multiplied)
