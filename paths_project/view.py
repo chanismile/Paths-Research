@@ -52,7 +52,7 @@ if __name__ == '__main__':
             indxs = [tuple(indx.split(',')) for indx in split_choise[1:]]
 
             choises_list.append((int(split_choise[0]), tuple(indxs)))
-        except:
+        except ValueError:
             print("invalid details. enter 2 indexes in x,y format. try again")
 
     while(True):
