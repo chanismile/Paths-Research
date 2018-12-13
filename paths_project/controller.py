@@ -15,6 +15,7 @@ class Controller:
     def __init__(self, file_name, image_name):
         self.model = model.Model(file_name, image_name)
         self.df_with_filter = self.model.df_by_obj
+        self.old_filter = self.df_with_filter
 
     def get_file(self):
         return self.model.get_pickle_file()
@@ -92,4 +93,11 @@ class Controller:
         return temp_df_with_filter
 
     def reset_df_with_filter(self):
+
+        self.old_filter = self.df_with_filter
         self.df_with_filter = self.model.df_by_obj
+
+    def previous_filter(self):
+        self.df_with_filter = self.old_filter
+        self.plot_objs(self.df_with_filter)
+
