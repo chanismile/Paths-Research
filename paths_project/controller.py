@@ -35,7 +35,7 @@ class Controller:
         show()
 
     def plot_objs(self,data):
-        top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False).head(10)
+        top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False)
         df_by_obj = self.model.df.set_index(['filename', 'obj']).sort_index()
         main_info = []
 
@@ -43,9 +43,9 @@ class Controller:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
         if self.df_with_filter.size < settings.MAX_TO_PRESENT:
-            multiplied = False
-        else:
             multiplied = True
+        else:
+            multiplied = False
         self.draw_lines(main_info,multiplied)
 
     def drow_by_filters(self, filters):
