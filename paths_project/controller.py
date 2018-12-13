@@ -21,7 +21,7 @@ class Controller:
         return self.model.get_pickle_file()
 
     def draw_lines(self, list, multiplied = False):
-        ion()
+        # ion()
         if list == []:
             fig, ax = plt.subplots()
             ax.imshow(self.model.img)
@@ -33,11 +33,12 @@ class Controller:
                 plt.figure(i + 1)
                 fig, ax = plt.subplots()
                 ax.imshow(self.model.img)
-                #pause(0.1)
-                #gcf().clear()
+
             plot(*tuple, '-', 'color', rand(1, 10))
-        pause(0.001)
-        draw()
+        pause(0.1)
+        gcf().clear()
+        # pause(0.001)
+        #show()
 
 
     def plot_objs(self, data):
@@ -49,10 +50,12 @@ class Controller:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
         multiplied = False
-        if self.df_with_filter.size.real < settings.MAX_TO_PRESENT:
-            multiplied = bool(int(input("Press 1 to see every path in an seperate image. Press 0 to see in one image")))
-        # else:
-        #     multiplied = False
+        # multiplied = bool(int(input("Press 1 to see every path in an seperate image. Press 0 to see in one image")))
+
+        if self.df_with_filter.size < settings.MAX_TO_PRESENT:
+             multiplied = True
+         # else:
+         #     multiplied = False
         self.draw_lines(main_info,multiplied)
 
     def drow_by_filters(self, filters):
