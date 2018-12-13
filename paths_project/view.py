@@ -52,7 +52,7 @@ if __name__ == '__main__':
             indxs = [tuple(indx.split(',')) for indx in split_choise[1:]]
 
             choises_list.append((int(split_choise[0]), tuple(indxs)))
-        except:
+        except ValueError:
             print("invalid details. enter 2 indexes in x,y format. try again")
 
     while(True):
@@ -80,6 +80,8 @@ if __name__ == '__main__':
             choosing_filter = int(input('Do you want another filter? Press 1, if not, press 2\n'))
 
         control.drow_by_filters(tuple(choises_list))
-        ans = input('to add more filters press 1, new filters - press 2\n')
+        ans = input('to add more filters press 1, new filters - press 2, previous filter - press 3\n')
         if ans == 2:
             control.reset_df_with_filter()
+        elif ans == 3:
+            control.previous_filter()

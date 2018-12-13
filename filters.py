@@ -11,7 +11,7 @@ img = imread("data/paths0.png")
 
 
 def plot_objs(data):
-    top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False).head(10)
+    top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False)
     df_by_obj = df.set_index(['filename', 'obj']).sort_index()
     main_info = []
     for t in top10.index:
