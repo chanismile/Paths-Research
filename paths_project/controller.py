@@ -19,7 +19,7 @@ class Controller:
     def get_file(self):
         return self.model.get_pickle_file()
 
-    def draw_lines(self, list, multiplied = True):
+    def draw_lines(self, list, multiplied = False):
 
         if list == []:
             fig, ax = plt.subplots()
@@ -32,7 +32,7 @@ class Controller:
                 plt.figure(i + 1)
                 fig, ax = plt.subplots()
                 ax.imshow(self.model.img)
-            plot(*tuple, '-', 'color', rand(1, 3))
+            plot(*tuple, '-', 'color', rand(1, 10))
         show()
 
     def plot_objs(self,data):
@@ -44,10 +44,10 @@ class Controller:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
         if self.df_with_filter.size < settings.MAX_TO_PRESENT:
-            multiplied = False
-        else:
             multiplied = True
-        self.draw_lines(main_info,multiplied)
+        else:
+            multiplied = False
+        self.draw_lines(main_info)#,multiplied)
 
     def drow_by_filters(self, filters):
         # filters is a tuples of name of filter, and his args in tuple
