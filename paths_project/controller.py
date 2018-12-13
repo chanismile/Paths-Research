@@ -20,8 +20,8 @@ class Controller:
     def get_file(self):
         return self.model.get_pickle_file()
 
-    def draw_lines(self, list, multiplied=True):
-
+    def draw_lines(self, list, multiplied = False):
+        ion()
         if list == []:
             fig, ax = plt.subplots()
             ax.imshow(self.model.img)
@@ -33,8 +33,11 @@ class Controller:
                 plt.figure(i + 1)
                 fig, ax = plt.subplots()
                 ax.imshow(self.model.img)
-            plot(*tuple, '-', 'color', rand(1, 3))
-        show()
+                #pause(0.1)
+                #gcf().clear()
+            plot(*tuple, '-', 'color', rand(1, 10))
+        pause(0.001)
+        draw()
 
 
     def plot_objs(self, data):
@@ -45,10 +48,11 @@ class Controller:
         for t in top10.index:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
-        if self.df_with_filter.size < settings.MAX_TO_PRESENT:
-            multiplied = True
-        else:
-            multiplied = False
+        multiplied = False
+        if self.df_with_filter.size.real < settings.MAX_TO_PRESENT:
+            multiplied = bool(int(input("Press 1 to see every path in an seperate image. Press 0 to see in one image")))
+        # else:
+        #     multiplied = False
         self.draw_lines(main_info,multiplied)
 
     def drow_by_filters(self, filters):
@@ -94,7 +98,7 @@ class Controller:
             y_size = y // settings.GRID[1]
             p1 = (x_size * int(indx1), y_size * int(indx2))
             p2 = (x_size * (int(indx1) + 1), y_size * (int(indx2) + 1))
-            temp_df_with_filter.append(self.area_filter(p1, p2))
+            temp_df_with_filter = temp_df_with_filter.append(self.area_filter(p1, p2))
         return temp_df_with_filter
 
     def reset_df_with_filter(self):
