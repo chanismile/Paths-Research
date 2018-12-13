@@ -36,8 +36,9 @@ class Controller:
             plot(*tuple, '-', 'color', rand(1, 10))
         show()
 
+
     def plot_objs(self, data):
-        top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False).head(10)
+        top10 = data.groupby(["filename", "obj"]).size().sort_values(ascending=False)
         df_by_obj = self.model.df.set_index(['filename', 'obj']).sort_index()
         main_info = []
 
@@ -81,7 +82,7 @@ class Controller:
             (self.df_with_filter.x.between(p1[0], p2[0])) & (self.df_with_filter.y.between(p1[1], p2[1]))]
 
     def specific_area_filter(self, square_indexes):
-        temp_df_with_filter = self.df_with_filter.head(10)
+        temp_df_with_filter = self.df_with_filter.head(0)
         for indx1, indx2 in square_indexes:
             x = self.model.img.size[0]
             y = self.model.img.size[1]
