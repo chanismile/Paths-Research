@@ -17,6 +17,7 @@ class Controller:
         self.df_with_filter = self.model.df_by_obj
         self.old_filter = self.df_with_filter
 
+
     def get_file(self):
         return self.model.get_pickle_file()
 
