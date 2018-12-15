@@ -5,7 +5,7 @@ import sys
 
 
 if __name__ == '__main__':
-    control = controller.Controller("../data/paths.pkl.xz",'../data/paths0.png')
+    #control = controller.Controller("../data/paths.pkl.xz",'../data/paths0.png')
     print("To filter by hours press 1. Provide 2 hours for range in hh:mm:ss format.\nTo filter by hours in specific date press 2. Provide 2 hours for range and date in dd-mm-yyyy format.\nTo filter by area press 3. Provide top-left point and bottom-right point in x,y format.\nTo filter by specific area press 4. Provide 2 indexes in x,y format.\npress 5 to exit program")
     choises_list = []
 
@@ -54,6 +54,13 @@ if __name__ == '__main__':
             choises_list.append((int(split_choise[0]), tuple(indxs)))
         except ValueError:
             print("invalid details. enter 2 indexes in x,y format. try again")
+
+
+    csv_file_name = input('Enter your csv file name\n')
+    while csv_file_name[csv_file_name.find('.'):] != '.csv':
+        csv_file_name = input('Please enter a csv file only\n')
+    control = controller.Controller(f"../data/{csv_file_name}",'../data/paths0.png')
+
 
     while(True):
         choises_list = []
