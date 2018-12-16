@@ -6,8 +6,10 @@ import os.path
 
 class Model:
     def __init__(self , csv_file_name, image_name):
-        #self.df = self.load_pickle_file(csv_file_name)
         self.df = self.convert_csv_to_pickle(csv_file_name)
+        # aa = self.df.head(25)
+        # aa.to_pickle('../data/sample1.pkl.xz')
+        # aa.to_csv('../data/sample1.csv')
         self.objs = self.get_objs()
         self.df_by_obj = self.get_df_by_obj()
         self.img = Image.open(image_name)

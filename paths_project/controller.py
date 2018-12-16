@@ -22,24 +22,27 @@ class Controller:
         return self.model.get_pickle_file()
 
     def draw_lines(self, list, multiplied = False):
-        # ion()
+        ion()
         if list == []:
             fig, ax = plt.subplots()
             ax.imshow(self.model.img)
-            show()
-            return
+            # pause(0.1)
+            # gcf().clear()
+            pause(0.001)
+            draw()
 
-        for i, tuple in enumerate(list):
-            if multiplied or i == 0:
-                plt.figure(i + 1)
-                fig, ax = plt.subplots()
-                ax.imshow(self.model.img)
+        else:
+            for i, tuple in enumerate(list):
+                if multiplied or i == 0:
+                    plt.figure(i + 1)
+                    fig, ax = plt.subplots()
+                    ax.imshow(self.model.img)
 
-            plot(*tuple, '-', 'color', rand(1, 10))
-        pause(0.1)
-        gcf().clear()
-        # pause(0.001)
-        #show()
+                plot(*tuple, '-', 'color', rand(1, 10))
+            # pause(0.1)
+            # gcf().clear()
+            pause(0.001)
+            draw()
 
 
     def plot_objs(self, data):
@@ -51,8 +54,7 @@ class Controller:
             oo = df_by_obj.loc[t]
             main_info.append((oo.x, oo.y))
         multiplied = False
-        # multiplied = bool(int(input("Press 1 to see every path in an seperate image. Press 0 to see in one image")))
-
+        #multiplied = bool(int(input("Press 1 to see every path in a seperate image. Press 0 to see in one image")))
         if self.df_with_filter.size < settings.MAX_TO_PRESENT:
              multiplied = True
          # else:
@@ -68,9 +70,8 @@ class Controller:
                 self.df_with_filter = self.hours_filter(*filter[1])
 
             elif filter[0] == 2:
-                 self.df_with_filter = self.date_filter(filter[1][2])
-                 self.df_with_filter = self.hours_filter(filter[1][0], filter[1][1])
-                #self.df_with_filter = self.hours_and_date_filter(*filter[1])
+                self.df_with_filter = self.hours_and_date_filter(*filter[1])
+
             elif filter[0] == 3:
                 self.df_with_filter = self.area_filter(*filter[1])
 
