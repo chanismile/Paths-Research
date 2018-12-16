@@ -25,7 +25,13 @@ class PathProjectTestCase(unittest.TestCase):
                 0], 16)
 
     def test_area_filter(self):
-        pass
+        control = controller.Controller('../data/sample.csv', '../data/paths0.png')
+        self.assertEquals(
+            control.area_filter((5,76), (149,112)).shape[
+                0], 12)
 
     def test_specific_area_filter(self):
-        pass
+        control = controller.Controller('../data/sample.csv', '../data/paths0.png')
+        self.assertEquals(
+            control.specific_area_filter(((0,8),)).shape[
+                0], 1)
