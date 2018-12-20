@@ -17,7 +17,7 @@ and after drawing some tracks - after filtering:
 
 ![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/paths.PNG)
 
-# the filter user can ask for:
+The filter user can ask for:
 * Tracks which passed during certain hours
 * Tracks whick passed during certain hours in specific date
 * Tracks which passed in specific area
@@ -25,12 +25,13 @@ and after drawing some tracks - after filtering:
   
 User can also combine between some of the filters.
 
-# Runnig
+#### Runnig
 
 python view.py
 
-# Dependencies
+#### Dependencies
 
 * pandas
 * matplotlib
 * tkinter
+
