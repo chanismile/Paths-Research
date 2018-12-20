@@ -35,3 +35,15 @@ python view.py
 * matplotlib
 * tkinter
 
+### example #1
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/query1.PNG)
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/answer1.PNG)
+
+### example #2
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/query2.PNG)
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/answer2.PNG)
+
+### example #3 : add a filter on example #2
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/query3.PNG)
+![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/answer3.PNG)
+
