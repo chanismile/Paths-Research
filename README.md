@@ -19,7 +19,7 @@ and after drawing some tracks - after filtering:
 
 The filter user can ask for:
 * Tracks which passed during certain hours
-* Tracks whick passed during certain hours in specific date
+* Tracks which passed during certain hours in specific date
 * Tracks which passed in specific area
 * Tracks which passed un cosen areas
   
@@ -33,7 +33,7 @@ python view.py
 
 * pandas
 * matplotlib
-* tkinter
+* numpy
 
 ### example #1
 ![SCREESHOT DECSRIPTION](https://github.com/Elevationacademy/xt-paths-research-ella-chani-z-chani-g-sari-v/blob/master/query1.PNG)
